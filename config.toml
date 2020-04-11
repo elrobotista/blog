@@ -1,0 +1,44 @@
+baseURL = "/"
+languageCode = "es-mx"
+theme = "hello_friend_ng"
+
+[params]
+  dateform        = "Jan 2, 2006"
+  dateformShort   = "Jan 2"
+  dateformNum     = "2006-01-02"
+  dateformNumTime = "2006-01-02 15:04 -0700"
+
+  disableReadOtherPosts = false
+
+  description = "My new homepage or blog"
+  keywords = "homepage, blog"
+  images = [""]
+
+  contentTypeName = "posts"
+
+  defaultTheme = "dark"
+
+[languages]
+  [languages.en]
+    title = "Un blog de robótica."
+    subtitle = "Un blog de robótica."
+    keywords = "robótica, blog"
+    copyright = ""
+    readOtherPosts = "Leer más"
+
+    [languages.en.params.logo]
+      logoText = "El robotista | blog"
+      logoHomeLink = "/"
+    # path = "/img/your-example-logo.svg"
+    # alt = "Your example logo alt text"
+
+  # And you can even create generic menu
+  [[menu.main]]
+    identifier = "blog"
+    name       = "Posts"
+    url        = "/posts"
+
+  [[menu.main]]
+    identifier = "about"
+    name = "Sobre nosotros"
+    url = "/about"
