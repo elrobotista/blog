@@ -1,8 +1,18 @@
----
-title: "Ejecución de comandos por puerto serial" 
-date: 2020-04-09T20:37:12-05:00
-draft: false
----
++++
+title = "Ejecución de comandos por puerto serial."
+date = 2020-04-11T14:57:48-05:00
+tags = []
+categories = []
+imgs = []
+cover = ""  # image show on top
+readingTime = true  # show reading time after article date
+toc = true
+comments = true
+justify = false  # text-align: justify;
+single = false  # display as a single page, hide navigation on bottom, like as about page.
+license = ""  # CC License
+draft = false
++++
 
 No sé si te ha pasado; pero al trabajar en le etapa de desarrollo de un proyecto, es común necesitar un tipo de interfaz a través de la cual ejecutar comandos de forma sencilla. Por ejemplo: ejecutar un test simple que encienda y apague leds o indicadores conectados a la salidas digitales para validar las conexiones, cambiar los parámetros de un controlador PID, cambiar el periodo o frecuencia de un PWM, cambiar la direccion de giro de un motor, etc.
 
