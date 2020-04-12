@@ -1,6 +1,6 @@
 +++
 title = "Buffer circular en C"
-date = 2020-04-12T12:25:09-05:00
+date = 2017-04-06T12:25:09-05:00
 tags = []
 categories = []
 imgs = []
