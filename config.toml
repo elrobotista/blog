@@ -1,44 +1,60 @@
 baseURL = "/"
-languageCode = "es-mx"
-theme = "hello-friend-ng"
+languageode = "es"
+theme = "hugo-notepadium"
+defaultContentLanguage = "es"
+
+enableRobotsTXT = true
+
+# Enable Disqus
+disqusShortname = "elrobotistaDisqus"
+
+# Google Analytics
+#googleAnalytics = "UA-123-45"
+
+[author]
+  name = "El Robotista"
+  homepage = "https://elrobotista.com"
+
+[markup.highlight]
+codeFences = true
+noClasses = false
+
+[markup.goldmark.renderer]
+unsafe = true  # enable raw HTML in Markdown
 
 [params]
-  dateform        = "Jan 2, 2006"
-  dateformShort   = "Jan 2"
-  dateformNum     = "2006-01-02"
-  dateformNumTime = "2006-01-02 15:04 -0700"
+style = "dark"
+dateFormat = "Monday, January 2, 2006"
+logo = "img/elrobotista-logo.png"
+slogan = "Un blog de robótica."
+license = ""
+fullRss = false
 
-  disableReadOtherPosts = false
+[params.comments]
+enable = true
 
-  description = "My new homepage or blog"
-  keywords = "homepage, blog"
-  images = [""]
+[params.math]
+enable = true
+use = "mathjax"
 
-  contentTypeName = "posts"
+[params.syntax]
+use = "hljs"
+theme = "gruvbox-light"
+darkTheme = "gruvbox-dark"
 
-  defaultTheme = "dark"
+[params.share]
+enable = false
+addThisId = ""
+inlineToolId = ""
 
-[languages]
-  [languages.en]
-    title = "Un blog de robótica."
-    subtitle = "Un blog de robótica."
-    keywords = "robótica, blog"
-    copyright = ""
-    readOtherPosts = "Leer más"
+[params.nav]
+showCategories = false
+showTags = false
 
-    [languages.en.params.logo]
-      logoText = "El robotista | blog"
-      logoHomeLink = "/"
-    # path = "/img/your-example-logo.svg"
-    # alt = "Your example logo alt text"
+[[params.nav.custom]]
+title = "Blog"
+url = "/"
 
-  # And you can even create generic menu
-  [[menu.main]]
-    identifier = "blog"
-    name       = "Posts"
-    url        = "/posts"
-
-  [[menu.main]]
-    identifier = "about"
-    name = "Sobre nosotros"
-    url = "/about"
+[[params.nav.custom]]
+title = "Nosotros"
+url = "/about/"
