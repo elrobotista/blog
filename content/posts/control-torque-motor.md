@@ -1,6 +1,6 @@
 +++
 title = "Control de torque de un motor de corriente directa"
-date = 2020-04-11T18:15:37-05:00
+date = 2017-05-25T18:15:37-05:00
 tags = []
 categories = []
 imgs = []
