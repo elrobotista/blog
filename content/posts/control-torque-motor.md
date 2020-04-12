@@ -4,7 +4,7 @@ date = 2020-04-11T18:15:37-05:00
 tags = []
 categories = []
 imgs = []
-cover = ""  # image show on top
+cover = "/img/current-control-servo.jpg"  # image show on top
 readingTime = true  # show reading time after article date
 toc = true
 comments = false
@@ -320,7 +320,7 @@ Y listo. Si teclearon el código (los invito a teclearlo, y no copiarlo) de form
 
 ![current response](/img/current-control-response.png)
 
-Nota que el tiempo de respuesta del sistema es de `50ms`, como habíamos definido. Para el voltaje de entrada deberías ver algo similar a la siguiente gráfica:
+Nota que el tiempo de respuesta del sistema es de $50ms$, como habíamos definido. Para el voltaje de entrada deberías ver algo similar a la siguiente gráfica:
 
 ![voltage-current response](/img/voltage-current-control.png)
 
