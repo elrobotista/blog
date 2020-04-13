@@ -76,7 +76,7 @@ ts = 1e-2 # Tiempo de muestreo.
 
 # Integrar la ecuacion de diferencias
 # por el tiempo especificado.
-while t &lt; tf:
+while t < tf:
 
    # Esta es la ecuacion de diferencias.
    w = (dt / tau) * (K * Vin - w) + w
@@ -131,7 +131,7 @@ for K, tau, X, T in zip(_K, _tau, _X, _T):
   x, t = X[0], T[0]
 # Asignar leyenda para distinguir grafico.
   leg.append('K={0}, tau={1}'.format(K, tau))
-  while t &lt; tf:
+  while t < tf:
     dx =  (K * Vin - x) / tau
     x += dx * ts
     t += ts # Siguiente muestra de tiempo.
