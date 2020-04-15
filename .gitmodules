@@ -1,0 +1,3 @@
+[submodule "themes/hugo-notepadium-elrobotista"]
+	path = themes/hugo-notepadium-elrobotista
+	url = https://github.com/Marckhz/hugo-notepadium.git
