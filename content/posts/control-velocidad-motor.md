@@ -11,7 +11,7 @@ comments = false
 justify = false  # text-align: justify;
 single = false  # display as a single page, hide navigation on bottom, like as about page.
 license = ""  # CC License
-draft = true
+draft = false
 +++
 
 En la [entrada anterior](https://jhestolano.com/posts/simulacion-sistemas/) vimos cómo podemos escribir una simulación en Python para estudiar la respuesta de un motor de corriente directa. En esta, estudiaremos cómo podemos utilizar el modelo del motor para diseñar un controlador de velocidad PI (Proporcional-Integral).
