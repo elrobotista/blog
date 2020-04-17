@@ -58,3 +58,7 @@ url = "/"
 [[params.nav.custom]]
 title = "Nosotros"
 url = "/about/"
+
+[[params.nav.custom]]
+title = "Autores"
+url = "/authors/"
