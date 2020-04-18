@@ -6,7 +6,7 @@ defaultContentLanguage = "es"
 enableRobotsTXT = true
 
 # Enable Disqus
-disqusShortname = "elrobotistaDisqus"
+# disqusShortname = "elrobotistaDisqus"
 
 # Google Analytics
 #googleAnalytics = "UA-123-45"
@@ -58,3 +58,7 @@ url = "/"
 [[params.nav.custom]]
 title = "Nosotros"
 url = "/about/"
+
+[[params.nav.custom]]
+title = "Autores"
+url = "/authors/"
