@@ -9,7 +9,7 @@ enableRobotsTXT = true
 # disqusShortname = "elrobotistaDisqus"
 
 # Google Analytics
-#googleAnalytics = "UA-123-45"
+googleAnalytics = "UA-96903957-1"
 
 [author]
   name = "El Robotista"
