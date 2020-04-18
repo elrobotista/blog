@@ -28,7 +28,7 @@ donde $ki,kd,kp$ son las ganancias del controlador, $u$ es la señal de control,
 
 En este caso, la señal de referencia $r$ es la velocidad deseada, que denotaremos como $\omega_r$, y la salida $y$ es la velocidad real del motor: $\omega$. El voltaje de entrada al motor $v_in$ será la salida del controlador $u$. El diagrama a bloques del sistema de control se aprecia en la Figura 1.
 
-![closeed-loop-system](/img/sistema-lazo-cerrado-control-velocidad.png)
+![closeed-loop-system](/img/posts/sistema-lazo-cerrado-control-velocidad.png)
 *Figura 1. Sistema en lazo cerrado.*
 
 Existen diversos métodos para sintonizar las ganancias del controlador: posicionamiento de polos, lugar de las raíces, diagramas de Bode, reglas de Ziegler-Nichols, etc. En esta entrada discutiremos el diseño del controlador utilizando el posicionamiento de polos. Esto debido a que me parece un método analítico y más intuitivo que los métodos de frecuencia y lugar de las raíces. Los métodos heurísticos de Ziegler-Nichols son de mucha utilidad cuando no se tiene un modelo preciso del sistema. En este caso, el modelo que tenemos es suficiente.
@@ -155,18 +155,18 @@ plt.show()
 ```
 Se puede apreciar en la Figura 1 se puede apreciar la respuesta del motor. Si se dan cuenta, el motor se estabiliza en el valor deseado en un tiempo aproximado a los $0.2$ segundos deseados. Y el sobretiro es cercano al $5$%.
 
-![closeed-loop-system-response](/img/control-velocidad-respuesta.png)
+![closeed-loop-system-response](/img/posts/control-velocidad-respuesta.png)
 *Figura 2. Respuesta del motor con control PI.*
 
 Entonces podemos concluir que las ecuaciones que definimos son un buen punto de inicio para una sintonización más fina del controlador, si fuera necesario. Podemos correr múltiples simulaciones variando los parámetros de diseño (tiempo de asentamiento y sobretiro máximo), o los parámetros del controlador para evaluar el impacto que tienen en la respuesta del motor:
 
 control-velocidad-respuesta-parametros.png
-![closeed-loop-system-response-parameter-variation](/img/control-velocidad-respuesta-parametros.png)
+![closeed-loop-system-response-parameter-variation](/img/posts/control-velocidad-respuesta-parametros.png)
 *Figura 3. Respuesta del motor a variación de parámetros de diseño.*
 
 Se aprecia en la Figura 3 que la respuesta del sistema se ajusta decentemente a nuestra especificación, y por un instante pareciera que podemos definir el tiempo de respuesta $T_s$ del sistema tan pequeño como deseemos.  Pero en la Figura 4 podemos observar que para que el motor responda de la manera deseada, ¡el voltaje de entrada es superior a los $60$ volts! Este voltaje es muy superior a voltaje máximo especificado del motor que se está estudiando.
 
-![closeed-loop-system-response-input-voltage](/img/control-velocidad-respuesta-voltaje.png)
+![closeed-loop-system-response-input-voltage](/img/posts/control-velocidad-respuesta-voltaje.png)
 *Figura 4. Voltaje de alimentación del motor.*
 
 Esta es la importancia del diseño basado en modelos. Si hubiéramos ido directo a la implementación, podríamos haber dañado motores diseñando el controlador. Sin embargo, con simulaciones podemos darnos cuenta que probablemente no podamos obtener un desempeño tan agresivo de parte del motor sin exceder las capacidades físicas de este. Entonces, podemos decidir un compromiso entre desempeño y longevidad del equipo electrónico y mecánico.

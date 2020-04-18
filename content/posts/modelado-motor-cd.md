@@ -34,7 +34,7 @@ Y si ya andamos en preguntas del significado físico de operadores matemáticos,
 
 Empecemos con un ejemplo sencillo, pero que tiene muchísimas aplicaciones en la industria: el control de un motor de corriente continua. Un motor eléctrico es una maquina capaz de convertir energía eléctrica a trabajo mecánico.
 
-![dc-motor-model](/img/modelo-motor-cd.png)
+![dc-motor-model](/img/posts/modelo-motor-cd.png)
 *Figura 1.- Modelo de un motor de corriente directa.*
 
 Entonces, podemos esperar que en el modelo matemático aparescan por allí ecuaciones de voltajes y corrientes acopladas a ecuaciones de fuerzas y velocidades.Confíen un poco en mi y acepten por un momento que la parte eléctrica del motor se puede modelar como se muestra a continuación:
@@ -85,7 +85,7 @@ $$\frac{\Omega(s)}{V(s)}=\frac{K}{\tau s+1}.$$
 
 ¡Y listo! Nos olvidamos de $L,R,J$… y esas cosas que no podemos medir directamente. Sólo queda determinar la denominada ganancia de DC $K$ y la constante de tiempo del sistema $\tau$ (no confundir con torque). Estas se obtienen fácilmente a partir de la respuesta del motor a una entrada constante de voltaje. En la siguiente figura les muestro un ejemplo la respuesta real del motor en comparacion con el modelo a una entrada constante de voltaje:
 
-![dc-motor-response](/img/respuesta-modelo-motor-cd.png)
+![dc-motor-response](/img/posts/respuesta-modelo-motor-cd.png)
 *Figura 2.- Respuesta del motor a un escalón de voltaje.*
 
 La gráfica azul es la velocidad real del motor; la roja, el modelo. En la grafica se muestran dos puntos importantes: el tiempo que toma al motor en alcanzar por primera vez el 98% de la velocidad para un determinado voltaje, y la velocidad maxima del motor a 24v. A partir de estos dos puntos podemos caracterizar el motor con las siguientes ecuaciones:

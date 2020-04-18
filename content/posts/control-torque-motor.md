@@ -318,11 +318,11 @@ def run_current_control(m, x0, tf, ts):
 
 Y listo. Si teclearon el código (los invito a teclearlo, y no copiarlo) de forma correcta, deberían ver gráficas similares a las siguientes:
 
-![current response](/img/current-control-response.png)
+![current response](/img/posts/current-control-response.png)
 
 Nota que el tiempo de respuesta del sistema es de $50ms$, como habíamos definido. Para el voltaje de entrada deberías ver algo similar a la siguiente gráfica:
 
-![voltage-current response](/img/voltage-current-control.png)
+![voltage-current response](/img/posts/voltage-current-control.png)
 
 Nota que a pesar de que la corriente se estabiliza en el valor deseado, el voltaje sigue aumentando. Esto es debido al término que cancela el “back-emf” del motor. La corriente genera un torque en el motor, lo que acelera el rotor, e incrementa cada vez más la velocidad del motor; por ende, el voltaje generado por el rotor se incrementa, y el controlador debe incrementar el voltaje de alimentación para sostener la corriente deseada.
 

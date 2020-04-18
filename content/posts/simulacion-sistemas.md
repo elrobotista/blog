@@ -100,7 +100,7 @@ plt.show()
 
 La gráfica debería verse similar a esta:
 
-![simulation output](/img/respuesta-simulacion-sistemas-dinamicos.png)
+![simulation output](/img/posts/respuesta-simulacion-sistemas-dinamicos.png)
 *Figura 1.- Respuesta del motor de corriente directa a un escalón de voltaje.*
 
 Simular sistemas dinámicos utilizando métodos numéricos permite evaluar el desempeño del sistema a variación de parámetros: sea del sistema mismo, condiciones de operación, diferentes paradigmas de control, etc. Por ejemplo, supongamos que queremos estudiar el impacto de la variación de los parámetros τ,K. Si tienen conocimiento en teoría de ecuaciones diferenciales, les será obvio el impacto que tienen estos parámetros en la respuesta del motor. Pero tengamos en cuenta que estamos hablando de un sistema lineal de primer orden; no es tan sencillo deducirlo para modelos de sistemas dinámicos más complejos.
@@ -148,7 +148,7 @@ plt.show()
 
 ```
 
-![simulation output parameter variation](/img/respuesta-simulacion-sistemas-dinamics-variacion-parametros.png)
+![simulation output parameter variation](/img/posts/respuesta-simulacion-sistemas-dinamics-variacion-parametros.png)
 *Figura 2.- Respuesta del motor con diferentes parámetros a un escalón de voltaje.*
 
 Se puede apreciar en la Figura 2 que el impacto de la constante de tiempo $\tau$ es aumentar o disminuir la respuesta del motor, mientras que la ganancia $K$ determina la magnitud que alcanza la velocidad: tal como lo esperábamos.

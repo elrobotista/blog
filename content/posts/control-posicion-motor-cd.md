@@ -169,7 +169,7 @@ Si llevas a cabo la multiplicación de matrices, deberás llegar al modelo que d
 En la segunda parte, el `main`, se ejecuta la simulación: se crea el motor a partir de los parámetros de la hoja de datos, se ejecuta la simulación por $100\mathrm{ms}$, con condiciones iniciales cero: $(\omega_0=0, i_0=0)$, con un voltaje constante de alimentación de $90\mathrm{v}$ (especificado en la hoja de datos), y se crea una gráfica con los resultados de la simulación:
 
 
-![motor step response](/img/control-posicion-respuesta-escalon.jpg)
+![motor step response](/img/posts/control-posicion-respuesta-escalon.jpg)
 *Figura 1. Respuesta a un escalón de $90\mathrm{v}$*
 
 Veamos, la hoja de datos especifica que en condiciones de operación nominales del motor son: $(\omega_{nom}=6000\mathrm{RPM}\approx \  628\mathrm{rad/s}, i_{nom}=8.33\mathrm{A})$. En la simulación obtuvimos: $(\omega_{nom}\approx 6178\mathrm{RPM}\approx \  647\mathrm{rad/s}, i_{nom}\approx 8.6\mathrm{A})$. La corriente pico sí está bastante alejada de lo especificado en la hoja de datos; pero no hay manera de saber cuales fueron las condiciones de prueba. Tal vez la fuente de alimentación no tenía la potencia suficiente para lograr la corriente pico que vemos en la simulación. O tal vez la impedancia de salida de la fuente redujo la corriente pico que consume el motor.
@@ -305,10 +305,10 @@ $$ u=k_p(\theta_d-\theta)-k_d\omega; $$
 
 y listo, este es el control de posición del motor. Se aplica el voltaje, se calcula la dinámica del sistema a partir del nuevo voltaje aplicado y se integra durante el tiempo determinado. Al terminar la simulación, se grafican los resultados. Si todo va bien, deberías ver una gráfica como la siguiente:
 
-![respuesta-motor-pittman](/img/respuesta-motor-control-posicion.jpg)
+![respuesta-motor-pittman](/img/posts/respuesta-motor-control-posicion.jpg)
 *Figura 2. Respuesta del modelo del motor Pittman en lazo cerrado*
 
-![respuesta-motor-pittman-2](/img/respuesta-motor-control-posicion-2.jpg)
+![respuesta-motor-pittman-2](/img/posts/respuesta-motor-control-posicion-2.jpg)
 *Figura 3. Respuesta del modelo del motor Pittman con control de posición*
 
 Puedes darte cuenta que el sistema tiene el desempeño deseado: el sobretiro se encuentra cercano al valor deseado, y de manera similar el tiempo de asentamiento. Aún cuando el control de posición fue diseñado utilizando un modelo reducido del motor, funciona para el sistema de segundo orden. Esto se debe a que $L \<\< R$. Y para demostrar esto, intenta incrementar el valor de L diez veces. Deberías ver algo similar a la siguiente imagen:
