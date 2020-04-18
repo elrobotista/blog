@@ -6,7 +6,7 @@ defaultContentLanguage = "es"
 enableRobotsTXT = true
 
 # Enable Disqus
-disqusShortname = "elrobotistaDisqus"
+# disqusShortname = "elrobotistaDisqus"
 
 # Google Analytics
 #googleAnalytics = "UA-123-45"
