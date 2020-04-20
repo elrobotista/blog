@@ -8,9 +8,9 @@ comments = false
 #cover = "/img/about.jpeg"
 complete_name="Jorge Hernandez"
 profilepic="/img/jorge.jfif"
-github = "https://github.com/Marckhz"
+github = "https://www.linkedin.com/in/marco-hernandez-33203710a/"
 email = "marcohdes94i@gmail.com"
-twitter = "https://twitter.com/marcohdes94i"
+twitter = ""
 linkedin = "https://www.linkedin.com/in/marco-hernandez-33203710a/"
 +++
 
