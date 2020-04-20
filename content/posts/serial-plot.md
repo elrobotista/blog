@@ -45,3 +45,9 @@ Bus 001 Device 002: ID 046d:c52b Logitech, Inc. Unifying Receiver
 Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 
 ```
+
+Puedes darte cuenta que en la línea #2 el dispositivo es reconocido por el sistema operativo.
+
+Volviendo a la ventana de configuración: es importante que el baudrate sea el mismo en el dispositivo y en serialplot; de lo contrario, la comunicación no se llevará a cabo de forma correcta. En mi caso, tengo configura el dispositivo a un baudrate de 2MBauds/s. Los siguientes campos los puedes dejar como en la configuración por default: 8-bits, no parity, 1 stop bit, no flow control. Y estamos listos con el panel de configuración.
+
+En el siguiente panel, vamos a configurar el formato de la transmisión de datos. Te puedes dar cuenta que serial-plot cuenta con diferentes modos de transferencia:
