@@ -11,7 +11,7 @@ comments = false
 justify = false  # text-align: justify;
 single = false  # display as a single page, hide navigation on bottom, like as about page.
 license = ""  # CC License
-draft = false
+draft = true
 +++
 
 A la hora de diseñar un controlador, tenemos herramientas como matlab, simulink, python con scipy/numpy, etc; que permiten la creación de gráficas en las disintas señales que podrían sernos de interés a la hora del diseño: señales de error, acción de control, velocidades, posiciones, etc. Pero la cosa cambia un poco cuandoes tiempo de llevar el diseño a la implementación: ¿Cómo podemos usar herramientas similares para visualizar las señales? Les presento: [*serialplot*](https://github.com/hyOzd/serialplot).
