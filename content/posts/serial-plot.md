@@ -27,3 +27,21 @@ Una vez hecho esto, vayan a la carpeta del proyecto, creen el directorio `build`
 
 ![serial-plot-window](/img/posts/serial-plot-window.jpg)
 *Figura 1. Serialplot*
+
+# Configuración
+
+En el tab de configuración podrán ver lo siguiente:
+
+![serial-plot-config](/img/posts/serial-plot-config.jpg)
+*Figura 2. Configuración de Serialplot*
+
+En el campo `port` deberían ver automáticamente preseleccionado el dispositivo de puerto serial a través del cual recibirán los datos: un arduino, mbed, launchpad, etc. En mi caso es una [tarjeta de desarrollo de ST](https://www.st.com/en/evaluation-tools/nucleo-f302r8.html). Pero esto no es importante, el proceso es exactamente el mismo, la diferencia es el nombre del dispositivo asignado por el sistema operativo. Otro nombre común asignado es `ttyACM0`. Si no aparece ningún dispositivo, asegúrense primero que fue reconocido por el sistema operativo: `lsusb`:
+
+``` bash
+
+Bus 001 Device 009: ID 0951:16d2 Kingston Technology 
+Bus 001 Device 010: ID 0483:374b STMicroelectronics ST-LINK/V2.1 (Nucleo-F103RB)
+Bus 001 Device 002: ID 046d:c52b Logitech, Inc. Unifying Receiver
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+
+```
