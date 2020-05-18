@@ -1,5 +1,5 @@
 +++
-title = "Explorando un conjunto de datos"
+title = "Analisis Exploratorio de Datos"
 date = 2020-04-11T18:15:37-05:00
 tags = []
 categories = []
@@ -17,7 +17,7 @@ featured_image = ""
 +++
 
 
-En este articulo abordaremos uno de los modelos basicos y mas utilizados en la estadistica, la Regresion Lineal. Nos apoyaremos del lenguaje R para implementar el algoritmo y lo aplicaremos en un conjunto de datos de peliculas extraida de diversas fuentes .Exploraremos el conjunto de datos, graficaremos, mostraremos estadisticos y mas. 
+En este articulo abordaremos uno de los modelos basicos y mas utilizados en la estadistica, la Regresion Lineal. Nos apoyaremos del lenguaje R para implementar el algoritmo y lo aplicaremos en un conjunto de datos de peliculas extraida de diversas fuentes.Exploraremos el conjunto de datos, graficaremos, mostraremos estadisticos y mas. 
 
 El objetivo es tener un modelo que deje el mejor score para predecir que elementos, debe tener una pelicula para
 que esta obtenga un buen score en Rotten Tomatoes y IMBD.
@@ -33,26 +33,9 @@ A continuacion te dejo los paquetes de R para trabajar el material y el conjunto
 * cowplot
 * Movies Dataset
 
-Dividiremos en seis partes o pasos a seguir en la realizacion de esta tarea. 
-
-1. Explicacion del conjunto de datos.
-2. El planteamiento de la pregunta de investigacion.
-3. Analisis Explotario de Datos.
-4. Modelado
-5. Prediccion
-6. Conclusion.
-
-### Parte 1 Los DATOS:
-De donde provienen los datos?
 Los datos fueron recolectados de los sitios Rotten Tomatoes y IMDb. El conjunto de datos es una muestra aleatoria 
 de ambos sitios que contienen diferentes peliculas, generos y sus respectivas metricas de cada sitio.
 
-### Parte 2 Pregunta de investigacion
-Cuales son las caracteristicas minimas adecuadas para obtener una calificacion decente en ambas plataformas?
-
-### Parte 3 EDA (Analisis Exploratorio de Datos)
-
-#### Cargar Paqueterias
 ``` R
 library(ggplot2)
 library(dplyr)
@@ -62,21 +45,19 @@ library(gridExtra)
 library(cowplot)
 ```
 
-#### Cargar conjunto de Datos
 ```R
 movies <- read.csv(url("https://gist.githubusercontent.com/Marckhz/e187f1114f9cb850600bfa739763703d/raw/a29cc73c593e03671d8c9ffcd3e28bf1a0853d1f/movies.csv") )
 ```
-Claramente existen diferentes generos de peliculas, pero, tienen algo en comun? Probablemente si. Entonces podriamos construir algun tipo de formula para elaborar una pelicula que siempre obtenga un buen score por parte del publico y de los criticos? Probablemente.
+Claramente existen diferentes generos de peliculas, pero, tienen algo en comun? Probablemente. Entonces podriamos construir algun tipo de formula para elaborar una pelicula que siempre obtenga un buen score por parte del publico y de los criticos? Probablemente.
 
-Me gustaria saber que columnas contiene el conjunto de datos. Para esto utilizaremos la funcion 
+Me gustaria saber que columnas contiene el conjunto de datos.
 
 ``` R
 names(movies)
 ```
 ![names data](/img/posts/movies-names-out.png)
-Ahora con esto tenemos las columnas y podemos darnos una idea con que tipo de datoes estamos lidiando. En algunos escenearios cuando los datos son recolectados es probable que te briden un CodeBook, donde, se te informa el tipo de datos, que contiene y quiza algo extra.
 
-Si ese es tu caso, donde se dieron los datos, no se te proporciona alguna informacion, el lenguaje R nos proporciona la siguente funcion.
+Ahora con esto tenemos las columnas y podemos darnos una idea con que tipo de datos estamos tratando. En algunos escenearios cuando los datos son recolectados es probable que te briden un CodeBook, donde, se te informa el tipo de datos, que contiene y quiza algo extra.
 
 ```R
 str(movies)
@@ -85,30 +66,29 @@ str(movies)
 
 De esta forma podemos observar cada atributo con su respectivo tipo de dato.
 
-Ahora bien, inspeccionemos el atributo runtime, sabemos que es un atributo numerico y por su nombre runtime sabemos que se habla acerca de la duracion de cada pelicula. Podemos generar estadisticos significativos de la siguiente manera y tambien graficaremos.  
-
+Ahora bien, inspeccionemos el atributo runtime, sabemos que es un atributo numerico y por su nombre runtime sabemos que se habla acerca de la duracion de cada pelicula. 
 ```R
 movies %>% select(runtime) %>% summary(runtime)
 ```
 ![summary stats](/img/posts/summary_stats_runtime.PNG)
 
-La funcion anterior proporciona los minimos y maximos, los quartiles, la mediana y la media.A continuacion crearemos un histograma del atributo runtime.
+La funcion anterior proporciona los minimos y maximos, los quartiles, la mediana y la media.A continuacion un histograma del atributo runtime.
 
 ```R
 ggplot(data = movies, aes(x = runtime)) + geom_histogram(binwidth = 5)
 ```
 ![histogram runtime](/img/posts/histogram-runtime.PNG)
 
-Se observan algunos outliers y una ligera inclinacion hacia la derecha. Para observar de una manera mejor estos outliers seria buena idea utilizar un boxplot.
+Se observan algunos outliers y una ligera inclinacion hacia la derecha. Para observar de mejor manera estos outliers seria una buena idea utilizar un boxplot.
 
 ```R
 ggplot(data = movies, aes(x= "movies", y  = runtime)) + geom_boxplot()
 ```
 ![boxplot runtime](/img/posts/boxplot-runtime.PNG)
 
-Se aprecia de manera los outliers y la media. Esto indica que en promedio la duracion de una pelicula es alrededor de 100 minutos.
+Esto indica que en promedio la duracion de una pelicula es alrededor de 100 minutos.
 
-Consideremos los casos de clasificacion de categoria en sitio de Rotten tomatoes y la duracion de cada pelicula. Procederemos a generar un histograma para cada uno  y en el mismo grafico posicionaremos la media y la medianaa.
+Consideremos los casos de clasificacion por categoria del sitio de Rotten tomatoes y la duracion de cada pelicula.
     
 ```R
 na.omit(movies) %>% group_by(critics_rating) %>% summarise(runtime_mean = mean(runtime), runtime_median = median(runtime))
@@ -125,14 +105,13 @@ plot_grid(g1,g2,g3)
 ```
 ![cat grid](/img/posts/multiple-hist-cat.PNG)
 
-Una vez mas claramente se observa una inclinacion hacia la derecha y un par de outliers. Apoyemonos una vez mas de un boxplot.
+Claramente se observa una inclinacion hacia la derecha y un par de outliers. Apoyemonos una vez mas de un boxplot.
 
 ```R
 movies %>% ggplot(aes(x = critics_rating, y  = runtime)) + geom_boxplot()
 ```
 ![multiple boxplot](/img/posts/boxplot-cat-mul.PNG)
 
-De manera mas comoda se pueden visualizar los outliers y la media.
 
 Continuando ahora con el sitio IMDb, este maneja sus clasificaciones por puntaje por lo tanto para visualizar la relacion puntaje-duracin de pelicula nos apoyaremos de un scatterplot .
 ```R
@@ -140,9 +119,8 @@ Continuando ahora con el sitio IMDb, este maneja sus clasificaciones por puntaje
 ```
 ![scatterplot runtime imdb](/img/posts/scatter-plot-runtime.PNG)
 
-Sabemos que el promedio de duracion de un pelicula es 105 minutos entonces cortamos horizontalmente los datos y se observa que las peliculas que tienen con la duracion de 105 minutos tienen un mejor puntaje de 6 ~ 8.
+Sabemos que el promedio de duracion de un pelicula es 105 minutos entonces al cortar horizontalmente los datos se observa que las peliculas que tienen con la duracion de 105 minutos tienen un mejor puntaje de 6 ~ 8.
 
-Indagemos la popularidad por mes.
 ```R
 sum_scores_crit <- movies %>% group_by(thtr_rel_month) %>% summarise(mean_critics_score = mean(critics_score), median_critics_score = median(critics_score))
 ggplot(data= sum_scores_crit, aes(x= thtr_rel_month, y = mean_critics_score )) + geom_point(size=5) + scale_x_continuous(breaks = c(1:12)) + xlab("month") + ylab("average score") + labs(title="Average Score per month") +  theme(plot.title = element_text(hjust = 0.5))
@@ -172,8 +150,6 @@ Ahora, analicemos los votos de los criticos  en cada categoria.
 ggplot(data = movies, aes(x = critics_rating, y = imdb_num_votes/1000, fill = critics_rating ) ) + geom_bar( stat = "identity")+ labs(title = "Relationship Rotten Tomatoes and IMDb votes") + theme(plot.title = element_text(hjust = 0.5))
 ```
 ![category critics](/img/posts/critics-category.PNG)
-
-### Parte 4 Modelar
 
 Es hora de construir un modelo linear de tipo regression. Usaremos las siguientes variables.
 
@@ -240,15 +216,15 @@ plot(movies_model_3$residuals)
 
 No se muestra ningun patron en los residuos.
 
-### Parte 5 prediccion
 
 ```R
 y_test <- data.frame(genre = "Documentary", critics_rating = "Fresh", runtime = 105)
 predict(movies_model_3, y_test, interlval="prediction", level = 0.05)
 ```
 El modelo da una respuesta de 86.65909. 
-Con esto, diciendonos que introduciendo estos variables podemos aseguranos que en realidad si es una categoria Fresh, de acuerdo Rotten tomatoes un intervalo   85 a 87 es categoria fresh.
+
+Introduciendo estas variables podemos aseguranos que en realidad si es una categoria Fresh, de acuerdo Rotten tomatoes un intervalo   85 a 87 es categoria fresh.
 
 ### Conclusion
 
-Claramente esto es considerado un modelo de juguete y solo es considerado para propositivos educativos de manera introductoria. Sin embargo, si tenemos suficientes datos podemos definir un patron y en realidad llegar a un modelo que pueda darnos la respuesta a una formula para siempre tener una pelicula exitosa? Probablemente, aunque, las variables que no se pueden controlar como el humor, la situacion economica, cultural, entre otras pienso que juegan un rol importante al momento de llevar a la implementacion.    
+Existen otras tecnicas y enfoques para realizar una exploracion de datos, anteriormente les he mostrado una de las maneras mas basicas, esto, con el proposito de dar una introduccion y ser lo mas claro posible.
