@@ -9,12 +9,11 @@ justify = false  # text-align: justify;
 single = false  # display as a single page, hide navigation on bottom, like as about page.
 draft = false
 
-=======
 profilepic = "/img/authors/marco.jpg"
 github = "https://github.com/Marckhz"
 email = "marco@elrobotista.com"
 linkedin = "https://www.linkedin.com/in/marco-hernandez-33203710a/"
 +++
-=======
+
 ¡Hola! Soy Marco, Application Developer, con especialidad en Data Science. Me gusta visitar cafeterias y leer temas acerca de tecnologia. Me encuentras en los siguientes links:
 
