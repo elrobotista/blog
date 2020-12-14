@@ -25,8 +25,8 @@ unsafe = true  # enable raw HTML in Markdown
 [params]
 style = "dark"
 dateFormat = "Monday, January 2, 2006"
-logo = "img/elrobotista-logo.png"
-slogan = "Un blog de robótica."
+logo = "img/ElRobotista.png"
+#slogan = "Un blog de robótica"
 license = ""
 fullRss = false
 

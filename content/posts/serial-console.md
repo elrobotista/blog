@@ -1,5 +1,5 @@
 +++
-title = "Ejecución de comandos por puerto serial."
+title = "Ejecución de comandos por puerto serial"
 date = 2019-01-24T14:57:48-05:00
 tags = []
 categories = []

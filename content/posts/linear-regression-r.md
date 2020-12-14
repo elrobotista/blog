@@ -11,7 +11,7 @@ comments = false
 justify = true  # text-align: justify;
 single = false  # display as a single page, hide navigation on bottom, like as about page.
 license = ""  # CC License
-draft = false
+draft = true
 math = false
 featured_image = ""
 +++
@@ -62,7 +62,7 @@ Ahora con esto tenemos las columnas y podemos darnos una idea con que tipo de da
 ```R
 str(movies)
 ```
-![struct data](/img/posts/movies-str-data.PNG)
+![struct data](/img/posts/movies-str-data.png)
 
 De esta forma podemos observar cada atributo con su respectivo tipo de dato.
 
@@ -70,21 +70,21 @@ Ahora bien, inspeccionemos el atributo runtime, sabemos que es un atributo numer
 ```R
 movies %>% select(runtime) %>% summary(runtime)
 ```
-![summary stats](/img/posts/summary_stats_runtime.PNG)
+![summary stats](/img/posts/summary_stats_runtime.png)
 
 La funcion anterior proporciona los minimos y maximos, los quartiles, la mediana y la media.A continuacion un histograma del atributo runtime.
 
 ```R
 ggplot(data = movies, aes(x = runtime)) + geom_histogram(binwidth = 5)
 ```
-![histogram runtime](/img/posts/histogram-runtime.PNG)
+![histogram runtime](/img/posts/histogram-runtime.png)
 
 Se observan algunos outliers y una ligera inclinacion hacia la derecha. Para observar de mejor manera estos outliers seria una buena idea utilizar un boxplot.
 
 ```R
 ggplot(data = movies, aes(x= "movies", y  = runtime)) + geom_boxplot()
 ```
-![boxplot runtime](/img/posts/boxplot-runtime.PNG)
+![boxplot runtime](/img/posts/boxplot-runtime.png)
 
 Esto indica que en promedio la duracion de una pelicula es alrededor de 100 minutos.
 
@@ -93,7 +93,7 @@ Consideremos los casos de clasificacion por categoria del sitio de Rotten tomato
 ```R
 na.omit(movies) %>% group_by(critics_rating) %>% summarise(runtime_mean = mean(runtime), runtime_median = median(runtime))
 ```
-![category summary](/img/posts/cat-sum.PNG)
+![category summary](/img/posts/cat-sum.png)
 ```R
 g1 <- na.omit(movies) %>% filter(critics_rating == "Certified Fresh")  %>% ggplot(aes(x = runtime)) + geom_histogram( binwidth = 5) + geom_vline(aes(xintercept= mean(runtime), color="mean" ), linetype="dashed") + geom_vline(aes(xintercept=median(runtime),color="median" ) , linetype="dashed")  + scale_colour_manual(name="statistics", values = c(mean="red", median="green") ) + labs(title= "Certified Fresh") + theme(plot.title = element_text(hjust = 0.5) )
 
@@ -103,21 +103,21 @@ g3 <- na.omit(movies) %>% filter(critics_rating == "Rotten")  %>% ggplot(aes(x =
 
 plot_grid(g1,g2,g3)
 ```
-![cat grid](/img/posts/multiple-hist-cat.PNG)
+![cat grid](/img/posts/multiple-hist-cat.png)
 
 Claramente se observa una inclinacion hacia la derecha y un par de outliers. Apoyemonos una vez mas de un boxplot.
 
 ```R
 movies %>% ggplot(aes(x = critics_rating, y  = runtime)) + geom_boxplot()
 ```
-![multiple boxplot](/img/posts/boxplot-cat-mul.PNG)
+![multiple boxplot](/img/posts/boxplot-cat-mul.png)
 
 
 Continuando ahora con el sitio IMDb, este maneja sus clasificaciones por puntaje por lo tanto para visualizar la relacion puntaje-duracin de pelicula nos apoyaremos de un scatterplot .
 ```R
  movies %>% select(runtime, imdb_rating) %>% ggplot(aes( x= imdb_rating, y = runtime)) + geom_jitter() + geom_hline(yintercept = 105.8, color="red")
 ```
-![scatterplot runtime imdb](/img/posts/scatter-plot-runtime.PNG)
+![scatterplot runtime imdb](/img/posts/scatter-plot-runtime.png)
 
 Sabemos que el promedio de duracion de un pelicula es 105 minutos entonces al cortar horizontalmente los datos se observa que las peliculas que tienen con la duracion de 105 minutos tienen un mejor puntaje de 6 ~ 8.
 
@@ -125,7 +125,7 @@ Sabemos que el promedio de duracion de un pelicula es 105 minutos entonces al co
 sum_scores_crit <- movies %>% group_by(thtr_rel_month) %>% summarise(mean_critics_score = mean(critics_score), median_critics_score = median(critics_score))
 ggplot(data= sum_scores_crit, aes(x= thtr_rel_month, y = mean_critics_score )) + geom_point(size=5) + scale_x_continuous(breaks = c(1:12)) + xlab("month") + ylab("average score") + labs(title="Average Score per month") +  theme(plot.title = element_text(hjust = 0.5))
 ```
-![month score](/img/posts/avg_month.PNG)
+![month score](/img/posts/avg_month.png)
 
 A simple vista parace ser que las peliculas que son publicadas en el mes de Diciembre tienden a tener un mejor puntaje, sin embargo, estos datos se refieren a la opinion de los criticos. Pensara la audiencia de misma manera?
 
@@ -134,7 +134,7 @@ aud_score <- movies %>% group_by(thtr_rel_month) %>% summarise(mean_audience = m
 g5<-ggplot(data= sum_scores_crit, aes(x= thtr_rel_month, y = mean_critics_score )) + geom_point(size=5) + scale_x_continuous(breaks = c(1:12)) + scale_y_continuous(breaks = c(50:80)) + xlab("month") + ylab("average score") + labs(title="Average Score per month") +  theme(plot.title = element_text(hjust = 0.5))
 g5 + geom_point( y = aud_score$mean_audience, size = 5, color="blue") + scale_y_continuous(breaks = c(54:70))
 ```
-![audience score](/img/posts/audience-score.PNG)
+![audience score](/img/posts/audience-score.png)
 
 Al parecer la audiencia es menos dura que los criticos al momento de calificar, pero, se observa que al igual que  los criticos, las peliculas que son publicadas en Diciembre.
 
@@ -149,7 +149,7 @@ Ahora, analicemos los votos de los criticos  en cada categoria.
 ```R
 ggplot(data = movies, aes(x = critics_rating, y = imdb_num_votes/1000, fill = critics_rating ) ) + geom_bar( stat = "identity")+ labs(title = "Relationship Rotten Tomatoes and IMDb votes") + theme(plot.title = element_text(hjust = 0.5))
 ```
-![category critics](/img/posts/critics-category.PNG)
+![category critics](/img/posts/critics-category.png)
 
 Es hora de construir un modelo linear de tipo regression. Usaremos las siguientes variables.
 
@@ -165,7 +165,7 @@ Utilizaremos la metodologia de eliminacion en reversa para elegir al mejor model
 movies_model <-  lm(critics_score ~  genre + critics_rating +  thtr_rel_month + runtime + imdb_num_votes, data = movies)
 summary(movies_model)
 ```
-![modelo 1](/img/posts/modelo1.PNG)
+![modelo 1](/img/posts/modelo1.png)
 
 La tactica es, ir quitando aquellas variables que  tengan el valor de P mas alto con el objetivo de reducir el coeficiente de R squared.
 
@@ -176,7 +176,7 @@ movies_model_2 <- lm(critics_score ~  genre + critics_rating  + runtime + imdb_n
 summary(movies_model_2)
 ```
 
-![modelo 2](/img/posts/model-2.PNG)
+![modelo 2](/img/posts/model-2.png)
 El valor de R-squared se ha incrementando un par de puntos, lo cual es bueno, mientras el valor de R-squared siga incrementandose podemos seguir quitando variables del juego, ahora bien, la variable genre NO tiene un valor significante por lo tanto un movimiento sensanto seria quitarla, sin embargo, esta variable es una variable que se compone de diferentes niveles y por lo tanto es necesario tratarla como una sola.
 
 ```R
@@ -184,7 +184,7 @@ movies_model_3 <- lm(critics_score ~  genre + critics_rating  + runtime, data = 
 summary(movies_model_3)
 ```
 
-![modelo 3](/img/posts/model-3.PNG)
+![modelo 3](/img/posts/model-3.png)
 El valor  R-squared se ha vuelto de incrementar.Ya no existen mas variables que quitar del modelo. Es hora de realizar un diagnostico de este.
 
 ### Dispersion aletoria alrededor de cero
@@ -192,27 +192,27 @@ El valor  R-squared se ha vuelto de incrementar.Ya no existen mas variables que 
 residuals <- c(movies_model_3$residuals, 0)
 plot(residuals ~ movies$runtime)
 ```
-![random scatter](/img/posts/random-scatter-around-0.PNG)
+![random scatter](/img/posts/random-scatter-around-0.png)
 Queremos la dispersion alrededor de cero, esto luce justo.
 
 ### Residuos de distribucion normal con media cero
 ```R
 hist(movies_model_3$residuals)
 ```
-![nearly normal cero](/img/posts/nearly-normal-cero.PNG)
+![nearly normal cero](/img/posts/nearly-normal-cero.png)
 Es similar a una distribucion normal? analicemos con una QQ plot.
 
 ```R
 qqnorm(movies_model_3$residuals)
 qqline(movies_model_3$residuals)
 ```
-![qqlplot](/img/posts/qqplot.PNG)
+![qqlplot](/img/posts/qqplot.png)
 La grafica muestra una similitud de forma en S, sin embargo, no hay mucha variabilidad en las colas.
 
 ```R
 plot(movies_model_3$residuals)
 ```
-![residual patterns](/img/posts/residual-any-pattern.PNG)
+![residual patterns](/img/posts/residual-any-pattern.png)
 
 No se muestra ningun patron en los residuos.
 

@@ -5,7 +5,7 @@ date = ""
 aliases = ["about-us","about-hugo","contact"]
 author = "El Robotista"
 comments = false
-cover = "/img/about.jpeg"
+cover = "/img/ElRobotistaLab.jpg"
 +++
 
 Somos un equipo de ingenieros especializados en diversas ramas de la ingeniería: robótica, software, comunicaciones, manufactura, etc. Creémos que la educación, en la actualidad, sufre la falta de la perspectiva prática de la ingeniería. Cada uno de nosotros tuvo una experiencia similar durante nuestra formación académica: los profesores rara vez hablaron de su experiencia en la industria y cómo el conocimiento que obtuvieron durante su educación profesional los ayudó a resolver los problemas a los que se enfrentaban a diario.
