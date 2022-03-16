@@ -1,6 +1,6 @@
 baseURL = "/"
 languageode = "es"
-theme = "hugo-notepadium-elrobotista"
+theme = "hugo-notepadium"
 defaultContentLanguage = "es"
 
 enableRobotsTXT = true
