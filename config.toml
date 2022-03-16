@@ -29,6 +29,9 @@ logo = "img/ElRobotista.png"
 #slogan = "Un blog de robótica"
 license = ""
 fullRss = false
+description ="Un blog de Robótica"
+images = ["/ElRobotistaLab.jpg"]
+gitURL = "https://github.com/elrobotista/"
 
 [params.comments]
 enable = true
