@@ -13,6 +13,12 @@ justify = false  # text-align: justify;
 single = false  # display as a single page, hide navigation on bottom, like as about page.
 license = ""  # CC License
 draft = false
+[twitter]
+  card = "summary"
+  site = "@jhestolano"
+  title = "Hola mundo embebido con un STM32 en Linux."
+  description = "En esta entrada les muestro cómo pueden instalar las herramientas necesarias para desarrollar con un STM32 en Linux."
+  image = "/img/covers/stm32_dev_linux_600w.png"
 +++
 
 Hoy en día las tarjetas basadas en microcontroladores [STM32](https://www.st.com/en/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus.html) son muy utilizadas en la industria, por los makers, y en la enseñanza.
