@@ -1,5 +1,5 @@
-baseURL = "/"
-languageode = "es"
+baseURL = "https://elrobotista.com/"
+languageCode = "es"
 theme = "hugo-notepadium"
 defaultContentLanguage = "es"
 
@@ -30,7 +30,7 @@ logo = "img/ElRobotista.png"
 license = ""
 fullRss = false
 description ="Un blog de Robótica"
-images = ["/ElRobotistaLab.jpg"]
+images = ["https://elrobotista.com/ElRobotistaLab.jpg"]
 gitURL = "https://github.com/elrobotista/"
 
 [params.comments]
