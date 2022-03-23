@@ -286,7 +286,7 @@ Navegamos a la carpeta ```appl``` e iniciamos el build: ```cd appl && make```. S
 
 Ahora sí podemos continuar con el "Hola, mundo embebido!". Lo siguiente que tenemos que revisar es el diagrama de pines de la tarjeta; necesitamos saber a qué GPIO (General Purpose Input / Output) está conectado el pin que controla el LED que vamos a encender y apagar. Para este tipo de tarjetas nucleo, me gusta consultar el diagrama en la página de mbed (otro framework similar a Arduino para desarrollo de embebidos). Tienen unos diagramas muy amigables y rápidos de consultar en https://os.mbed.com/platforms/ST-Nucleo-F303RE/:
 
-![MBED STM32 Pinout](/img/posts/stm32_mbed_pinout.png)
+![MBED STM32 Pinout](/img/posts/stm32_mbed_pinout.png#center)
 
 Podemos ver que el LED1 está conectado en el GPIO-A, pin 5. Comencemos a modificar el ```main```.
 
@@ -503,7 +503,7 @@ good!
 ```
 
 Deberían ver su tarjeta encendiendo y apagando el LED cada segundo, aproximadamente:
-![blinky stm32](/img/posts/stm32_dev_linux.gif)
+![blinky stm32](/img/posts/stm32_dev_link_resize.gif)
 
 Pueden encontrar el código en el Github de El Robotista; específicamente aquí: https://github.com/elrobotista/stm32_dev_linux.
 
