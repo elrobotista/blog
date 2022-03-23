@@ -4,7 +4,7 @@ date = 2022-03-19T13:04:02-06:00
 lastmod = 2022-03-19T13:04:02-06:00
 tags = ["STM32", "Linux", "GDB", "OpenOCD"]
 categories = ["Embedded"]
-imgs = ["/img/covers/stm32_dev_debug.png"]
+imgs = []
 cover = "/img/covers/stm32_dev_debug.png"
 readingTime = true
 toc = true
@@ -18,7 +18,7 @@ draft = false
   site = "@jhestolano"
   title = "Depurando un STM32 con OpenOCD, GDB y GDBFrontend en Linux"
   description = "En esta entrada les cuento como pueden usar un GDB y OpenOCD para depurar un STM32 en Linux"
-  image = "/img/covers/stm32_dev_debug.png"
+  image = "https://elrobotista.com/img/covers/stm32_dev_debug.png"
 +++
 
 En la entrada anterior les mostré como pueden iniciar rápidamente un proyecto con un STM32 utilizando herramientas open source en Linux. En este post vamos a continuar con la siguiente cuestión: ¿Cómo podemos depurar el código utilizando herramientas open source? Esto es de vital importancia porque tarde o temprano en el proyecto, llegaremos a un punto en el cual será necesario examinar con lupa los registros / estado del procesador; en estas situaciones llenar el código de ```printf``` puede no ser una solución práctica por muchas razones: no tener acceso al hardware necesario, no tener configurado un puerto serial (UART) en esta etapa del proyecto, la ejecución de ```printf``` podría cambiar el timing del código y cambiar el comportamiento del sistema, etc.
