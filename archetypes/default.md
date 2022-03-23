@@ -5,13 +5,18 @@ lastmod = {{ .Date }}
 tags = []
 categories = []
 imgs = []
-cover = ""  # image show on top
-readingTime = true  # show reading time after article date
+cover = ""
+readingTime = true
 toc = true
 comments = false
-justify = false  # text-align: justify;
-single = false  # display as a single page, hide navigation on bottom, like as about page.
-license = ""  # CC License
+justify = false
+single = false
+license = ""
 draft = true
+[twitter]
+  card = "summary_large_image"
+  site = "@jhestolano"
+  title = ""
+  description = ""
+  image = "https://elrobotista.com/elrobotistalab.jpg"
 +++
-
