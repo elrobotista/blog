@@ -3,6 +3,10 @@ languageCode = "es"
 theme = "hugo-notepadium"
 defaultContentLanguage = "es"
 
+[languages]
+  [languages.en]
+  [languages.es]
+
 enableRobotsTXT = true
 
 # Enable Disqus
